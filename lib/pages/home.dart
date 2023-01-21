@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:pastry_app/components/categorieitem.dart';
 import 'package:pastry_app/components/itemcard.dart';
 import 'package:pastry_app/utils/constants.dart';
-import 'package:pastry_app/utils/item_model.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -14,43 +13,42 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late List<Widget> items = [];
 
-  int _CategorieActive_index = 0;
+  int categorieActiveIndex = 0;
 
   List<Widget> getCategories() {
-    List<Widget> Categories = [];
+    List<Widget> categories = [];
 
-    for (int i = 0; i < CategorieItemList.length; i++) {
-      Widget widget = categorieItemContainer(
-        index: CategorieItemList[i].index,
-        imgPath: CategorieItemList[i].imgPath,
-        label: CategorieItemList[i].label,
-        isActive:
-            CategorieItemList[i].index == _CategorieActive_index ? true : false,
+    for (int i = 0; i < categorieItemList.length; i++) {
+      Widget widget = CategorieItemContainer(
+        index: categorieItemList[i].index,
+        imgPath: categorieItemList[i].imgPath,
+        label: categorieItemList[i].label,
+        isActive: categorieItemList[i].index == categorieActiveIndex ? true : false,
         onTap: () {
-          switchCategorieSelected(CategorieItemList[i].index);
+          switchCategorieSelected(categorieItemList[i].index);
         },
       );
 
-      Categories.add(widget);
+      categories.add(widget);
     }
 
-    return Categories;
+    return categories;
   }
 
   @override
   void initState() {
-    // TODO: implement initState
+    super.initState();
     setState(() {
-      _CategorieActive_index = 1;
+      categorieActiveIndex = 1;
       getIcecreamItem();
     });
   }
 
   void switchCategorieSelected(index) {
-    _CategorieActive_index = index;
+    categorieActiveIndex = index;
 
     setState(() {
-      switch (_CategorieActive_index) {
+      switch (categorieActiveIndex) {
         case 0:
           getHamburgerItem();
           break;
@@ -64,32 +62,30 @@ class _HomePageState extends State<HomePage> {
           getCakeItem();
           break;
         case 4:
-          getPizzaItem();
+          getpizzaItem();
           break;
         default:
           getHamburgerItem();
       }
     });
-
-    return index;
   }
 
   List getHamburgerItem() {
-    List<Widget> Hamburgers = [];
+    List<Widget> hamburgers = [];
 
-    for (int i = 0; i < HamburgerList.length; i++) {
-      var Widget = ItemCard(
-        index: HamburgerList[i].index,
-        type: HamburgerList[i].type,
-        imgPath: HamburgerList[i].imgPath,
-        title: HamburgerList[i].label,
-        price: HamburgerList[i].price,
-        avgRates: HamburgerList[i].avgRates,
-        nbRates: HamburgerList[i].nbRates,
+    for (int i = 0; i < hamburgerList.length; i++) {
+      var widget = ItemCard(
+        index: hamburgerList[i].index,
+        type: hamburgerList[i].type,
+        imgPath: hamburgerList[i].imgPath,
+        title: hamburgerList[i].label,
+        price: hamburgerList[i].price,
+        avgRates: hamburgerList[i].avgRates,
+        nbRates: hamburgerList[i].nbRates,
       );
 
-      Hamburgers.add(Widget);
-      items = Hamburgers;
+      hamburgers.add(widget);
+      items = hamburgers;
     }
 
     return items;
@@ -98,18 +94,18 @@ class _HomePageState extends State<HomePage> {
   List getIcecreamItem() {
     List<Widget> iceCream = [];
 
-    for (int i = 0; i < IceCreamList.length; i++) {
-      var Widget = ItemCard(
-        index: IceCreamList[i].index,
-        type: IceCreamList[i].type,
-        imgPath: IceCreamList[i].imgPath,
-        title: IceCreamList[i].label,
-        price: IceCreamList[i].price,
-        avgRates: IceCreamList[i].avgRates,
-        nbRates: IceCreamList[i].nbRates,
+    for (int i = 0; i < iceCreamList.length; i++) {
+      var widget = ItemCard(
+        index: iceCreamList[i].index,
+        type: iceCreamList[i].type,
+        imgPath: iceCreamList[i].imgPath,
+        title: iceCreamList[i].label,
+        price: iceCreamList[i].price,
+        avgRates: iceCreamList[i].avgRates,
+        nbRates: iceCreamList[i].nbRates,
       );
 
-      iceCream.add(Widget);
+      iceCream.add(widget);
       items = iceCream;
     }
 
@@ -117,63 +113,63 @@ class _HomePageState extends State<HomePage> {
   }
 
   List getJuiceItem() {
-    List<Widget> Juices = [];
+    List<Widget> juices = [];
 
-    for (int i = 0; i < JuiceList.length; i++) {
-      var Widget = ItemCard(
-        index: JuiceList[i].index,
-        type: JuiceList[i].type,
-        imgPath: JuiceList[i].imgPath,
-        title: JuiceList[i].label,
-        price: JuiceList[i].price,
-        avgRates: JuiceList[i].avgRates,
-        nbRates: JuiceList[i].nbRates,
+    for (int i = 0; i < juiceList.length; i++) {
+      var widget = ItemCard(
+        index: juiceList[i].index,
+        type: juiceList[i].type,
+        imgPath: juiceList[i].imgPath,
+        title: juiceList[i].label,
+        price: juiceList[i].price,
+        avgRates: juiceList[i].avgRates,
+        nbRates: juiceList[i].nbRates,
       );
 
-      Juices.add(Widget);
-      items = Juices;
+      juices.add(widget);
+      items = juices;
     }
 
     return items;
   }
 
   List getCakeItem() {
-    List<Widget> Cakes = [];
+    List<Widget> cakes = [];
 
-    for (int i = 0; i < CakeList.length; i++) {
-      var Widget = ItemCard(
-        index: CakeList[i].index,
-        type: CakeList[i].type,
-        imgPath: CakeList[i].imgPath,
-        title: CakeList[i].label,
-        price: CakeList[i].price,
-        avgRates: CakeList[i].avgRates,
-        nbRates: CakeList[i].nbRates,
+    for (int i = 0; i < cakeList.length; i++) {
+      var widget = ItemCard(
+        index: cakeList[i].index,
+        type: cakeList[i].type,
+        imgPath: cakeList[i].imgPath,
+        title: cakeList[i].label,
+        price: cakeList[i].price,
+        avgRates: cakeList[i].avgRates,
+        nbRates: cakeList[i].nbRates,
       );
 
-      Cakes.add(Widget);
-      items = Cakes;
+      cakes.add(widget);
+      items = cakes;
     }
 
     return items;
   }
 
-  List getPizzaItem() {
-    List<Widget> Pizza = [];
+  List getpizzaItem() {
+    List<Widget> pizza = [];
 
-    for (int i = 0; i < PizzaList.length; i++) {
-      var Widget = ItemCard(
-        index: PizzaList[i].index,
-        type: PizzaList[i].type,
-        imgPath: PizzaList[i].imgPath,
-        title: PizzaList[i].label,
-        price: PizzaList[i].price,
-        avgRates: PizzaList[i].avgRates,
-        nbRates: PizzaList[i].nbRates,
+    for (int i = 0; i < pizzaList.length; i++) {
+      var widget = ItemCard(
+        index: pizzaList[i].index,
+        type: pizzaList[i].type,
+        imgPath: pizzaList[i].imgPath,
+        title: pizzaList[i].label,
+        price: pizzaList[i].price,
+        avgRates: pizzaList[i].avgRates,
+        nbRates: pizzaList[i].nbRates,
       );
 
-      Pizza.add(Widget);
-      items = Pizza;
+      pizza.add(widget);
+      items = pizza;
     }
 
     return items;
@@ -187,12 +183,12 @@ class _HomePageState extends State<HomePage> {
         children: [
           // Promotion Card Section
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Container(
               height: 150,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Color(0xFFFFEECE),
+                color: const Color(0xFFFFEECE),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -201,17 +197,14 @@ class _HomePageState extends State<HomePage> {
                   // Promotion Text + Button
                   Expanded(
                     child: Container(
-                      padding: EdgeInsets.all(30),
+                      padding: const EdgeInsets.all(30),
                       child: Column(
                         children: [
                           RichText(
                             textAlign: TextAlign.center,
                             text: const TextSpan(
                               text: 'The Fastest In Delivery ',
-                              style: TextStyle(
-                                  color: Color(0xFF232A30),
-                                  fontWeight: FontWeight.w700,
-                                  fontSize: 15),
+                              style: TextStyle(color: Color(0xFF232A30), fontWeight: FontWeight.w700, fontSize: 15),
                               children: <TextSpan>[
                                 TextSpan(
                                   text: 'Food',
@@ -222,7 +215,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           Container(
@@ -255,7 +248,7 @@ class _HomePageState extends State<HomePage> {
                     child: Transform.scale(
                       scale: 0.88,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('assets/images/gift_icon.png'),
                           ),
@@ -268,10 +261,10 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
-          // Categories Label Row
-          HeaderLabel(label: 'Categories'),
+          // categories Label Row
+          const HeaderLabel(label: 'categories'),
 
-          // Categories Items Row
+          // categories Items Row
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -279,12 +272,12 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
 
           // Popular Now Label Row
-          HeaderLabel(label: 'Popular Now'),
+          const HeaderLabel(label: 'Popular Now'),
 
           // Popular Now Items Row
           SingleChildScrollView(
@@ -299,10 +292,10 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-// Categories Label Row
+// categories Label Row
 
 class HeaderLabel extends StatelessWidget {
-  const HeaderLabel({required this.label});
+  const HeaderLabel({Key? key, required this.label}) : super(key: key);
 
   final String label;
 
@@ -316,20 +309,14 @@ class HeaderLabel extends StatelessWidget {
           Text(
             label,
             style: const TextStyle(
-                color: Color(0xFF232A30),
-                fontSize: 18,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w600),
+                color: Color(0xFF232A30), fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.w600),
           ),
           Row(
             children: const [
               Text(
                 'View all',
                 style: TextStyle(
-                    color: Color(0xFFFEC562),
-                    fontSize: 15,
-                    fontFamily: 'Roboto',
-                    fontWeight: FontWeight.w600),
+                    color: Color(0xFFFEC562), fontSize: 15, fontFamily: 'Roboto', fontWeight: FontWeight.w600),
               ),
               Icon(
                 Icons.arrow_forward_ios,

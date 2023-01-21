@@ -15,12 +15,11 @@ class _GetStartedPageState extends State<GetStartedPage> {
       width: double.infinity,
       height: double.infinity,
       decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage("assets/images/bg.jpg"), fit: BoxFit.cover),
+        image: DecorationImage(image: AssetImage("assets/images/bg.jpg"), fit: BoxFit.cover),
       ),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: MediaQuery.of(context).size.height / 1.7,
             child: Transform.translate(
               offset: const Offset(0, 50),
@@ -61,19 +60,18 @@ class _GetStartedPageState extends State<GetStartedPage> {
                   padding: const EdgeInsets.fromLTRB(40, 0, 40, 30),
                   child: Column(
                     children: [
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         height: 200,
                         child: PageView(
-                          children: [
+                          children: const [
                             CaptionContainer(
-                                Heading1: 'The Fastest In Delivery ',
-                                Heading2: 'Food',
-                                text:
-                                    'Our job is to filling your tummy with delicious food and fast delivery'),
+                                heading1: 'The Fastest In Delivery ',
+                                heading2: 'Food',
+                                text: 'Our job is to filling your tummy with delicious food and fast delivery'),
                             CaptionContainer(
-                                Heading1: 'Your Best ',
-                                Heading2: 'Pastry',
+                                heading1: 'Your Best ',
+                                heading2: 'Pastry',
                                 text: 'Find what make you happy when you eat'),
                           ],
                         ),
@@ -84,7 +82,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                         onTap: () => {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Screen0()),
+                            MaterialPageRoute(builder: (context) => const Screen0()),
                           )
                         },
                         child: Container(
@@ -121,11 +119,11 @@ class _GetStartedPageState extends State<GetStartedPage> {
 }
 
 class CaptionContainer extends StatelessWidget {
-  CaptionContainer(
-      {required this.Heading1, required this.Heading2, required this.text});
+  const CaptionContainer({Key? key, required this.heading1, required this.heading2, required this.text})
+      : super(key: key);
 
-  final String Heading1;
-  final String Heading2;
+  final String heading1;
+  final String heading2;
   final String text;
 
   @override
@@ -137,19 +135,16 @@ class CaptionContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(40, 15, 40, 20),
+            padding: const EdgeInsets.fromLTRB(40, 15, 40, 20),
             child: RichText(
               textAlign: TextAlign.center,
               text: TextSpan(
-                text: Heading1,
-                style: TextStyle(
-                    color: Color(0xFF232A30),
-                    fontWeight: FontWeight.w700,
-                    fontSize: 33),
+                text: heading1,
+                style: const TextStyle(color: Color(0xFF232A30), fontWeight: FontWeight.w700, fontSize: 33),
                 children: <TextSpan>[
                   TextSpan(
-                    text: Heading2,
-                    style: TextStyle(
+                    text: heading2,
+                    style: const TextStyle(
                       color: Color(0xFFF54749),
                     ),
                   ),
@@ -157,17 +152,15 @@ class CaptionContainer extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            child: Text(
-              text,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontFamily: 'Roboto',
-                  decoration: TextDecoration.none,
-                  color: Color(0xFF232A30),
-                  fontWeight: FontWeight.w200,
-                  fontSize: 14),
-            ),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                fontFamily: 'Roboto',
+                decoration: TextDecoration.none,
+                color: Color(0xFF232A30),
+                fontWeight: FontWeight.w200,
+                fontSize: 14),
           ),
         ],
       ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:pastry_app/utils/constants.dart';
 
 class AddtocartPage extends StatefulWidget {
-  AddtocartPage({
+  const AddtocartPage({
+    Key? key,
     required this.type,
     required this.id,
-  });
+  }) : super(key: key);
 
   final String type;
   final int id;
@@ -25,7 +25,10 @@ class _AddtocartPageState extends State<AddtocartPage> {
   late int nbRates = 0;
   late int qte = 1;
 
+  @override
   void initState() {
+    super.initState();
+
     fetchData();
   }
 
@@ -49,49 +52,49 @@ class _AddtocartPageState extends State<AddtocartPage> {
 
   void fetchData() {
     if (widget.type == "hamburger") {
-      index = HamburgerList[widget.id].index;
-      type = HamburgerList[widget.id].type;
-      imgPath = HamburgerList[widget.id].imgPath;
-      title = HamburgerList[widget.id].label;
-      price = HamburgerList[widget.id].price;
-      avgRates = HamburgerList[widget.id].avgRates;
-      nbRates = HamburgerList[widget.id].nbRates;
+      index = hamburgerList[widget.id].index;
+      type = hamburgerList[widget.id].type;
+      imgPath = hamburgerList[widget.id].imgPath;
+      title = hamburgerList[widget.id].label;
+      price = hamburgerList[widget.id].price;
+      avgRates = hamburgerList[widget.id].avgRates;
+      nbRates = hamburgerList[widget.id].nbRates;
     }
     if (widget.type == "icecream") {
-      index = IceCreamList[widget.id].index;
-      type = IceCreamList[widget.id].type;
-      imgPath = IceCreamList[widget.id].imgPath;
-      title = IceCreamList[widget.id].label;
-      price = IceCreamList[widget.id].price;
-      avgRates = IceCreamList[widget.id].avgRates;
-      nbRates = IceCreamList[widget.id].nbRates;
+      index = iceCreamList[widget.id].index;
+      type = iceCreamList[widget.id].type;
+      imgPath = iceCreamList[widget.id].imgPath;
+      title = iceCreamList[widget.id].label;
+      price = iceCreamList[widget.id].price;
+      avgRates = iceCreamList[widget.id].avgRates;
+      nbRates = iceCreamList[widget.id].nbRates;
     }
     if (widget.type == "juice") {
-      index = JuiceList[widget.id].index;
-      type = JuiceList[widget.id].type;
-      imgPath = JuiceList[widget.id].imgPath;
-      title = JuiceList[widget.id].label;
-      price = JuiceList[widget.id].price;
-      avgRates = JuiceList[widget.id].avgRates;
-      nbRates = JuiceList[widget.id].nbRates;
+      index = juiceList[widget.id].index;
+      type = juiceList[widget.id].type;
+      imgPath = juiceList[widget.id].imgPath;
+      title = juiceList[widget.id].label;
+      price = juiceList[widget.id].price;
+      avgRates = juiceList[widget.id].avgRates;
+      nbRates = juiceList[widget.id].nbRates;
     }
     if (widget.type == "cake") {
-      index = CakeList[widget.id].index;
-      type = CakeList[widget.id].type;
-      imgPath = CakeList[widget.id].imgPath;
-      title = CakeList[widget.id].label;
-      price = CakeList[widget.id].price;
-      avgRates = CakeList[widget.id].avgRates;
-      nbRates = CakeList[widget.id].nbRates;
+      index = cakeList[widget.id].index;
+      type = cakeList[widget.id].type;
+      imgPath = cakeList[widget.id].imgPath;
+      title = cakeList[widget.id].label;
+      price = cakeList[widget.id].price;
+      avgRates = cakeList[widget.id].avgRates;
+      nbRates = cakeList[widget.id].nbRates;
     }
     if (widget.type == "pizza") {
-      index = PizzaList[widget.id].index;
-      type = PizzaList[widget.id].type;
-      imgPath = PizzaList[widget.id].imgPath;
-      title = PizzaList[widget.id].label;
-      price = PizzaList[widget.id].price;
-      avgRates = PizzaList[widget.id].avgRates;
-      nbRates = PizzaList[widget.id].nbRates;
+      index = pizzaList[widget.id].index;
+      type = pizzaList[widget.id].type;
+      imgPath = pizzaList[widget.id].imgPath;
+      title = pizzaList[widget.id].label;
+      price = pizzaList[widget.id].price;
+      avgRates = pizzaList[widget.id].avgRates;
+      nbRates = pizzaList[widget.id].nbRates;
     }
   }
 
@@ -104,7 +107,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
           Transform.scale(
             scale: 1.2,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/bg.jpg'),
                 ),
@@ -116,7 +119,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
           Column(
             children: [
               Container(
-                color: Color.fromRGBO(0, 0, 0, 0),
+                color: const Color.fromRGBO(0, 0, 0, 0),
                 height: 220,
               ),
               Expanded(
@@ -155,7 +158,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
                             },
                             icon: Icon(
                               Icons.arrow_back_ios_new_rounded,
-                              color: Color(0xFF232A30).withOpacity(0.8),
+                              color: const Color(0xFF232A30).withOpacity(0.8),
                             ),
                           ),
                         ),
@@ -171,7 +174,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
                             onPressed: () {},
                             icon: Icon(
                               Icons.more_horiz_outlined,
-                              color: Color(0xFF232A30).withOpacity(0.8),
+                              color: const Color(0xFF232A30).withOpacity(0.8),
                             ),
                           ),
                         ),
@@ -186,7 +189,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
                     // Food Image
                     Hero(
                       tag: '$type-$index',
-                      child: Container(
+                      child: SizedBox(
                         height: 200,
                         width: 200,
                         child: CircleAvatar(
@@ -201,9 +204,9 @@ class _AddtocartPageState extends State<AddtocartPage> {
                     // Food Quantity
                     Container(
                       width: 120,
-                      padding: EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
                       decoration: BoxDecoration(
-                        color: Color(0xFFF54749),
+                        color: const Color(0xFFF54749),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       child: Row(
@@ -213,10 +216,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
                             onTap: decreasedOrderAmount,
                             child: const Text(
                               '-',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w500),
+                              style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w500),
                             ),
                           ),
                           const SizedBox(
@@ -224,10 +224,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
                           ),
                           Text(
                             qte.toString(),
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700),
+                            style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
                           ),
                           const SizedBox(
                             width: 20,
@@ -236,10 +233,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
                             onTap: increasedOrderAmount,
                             child: const Text(
                               '+',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w500),
+                              style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w500),
                             ),
                           ),
                         ],
@@ -283,25 +277,19 @@ class _AddtocartPageState extends State<AddtocartPage> {
                                       children: [
                                         Row(
                                           children: [
-                                            const circleAvatar(
-                                                imgPath:
-                                                    'assets/images/avatar 1.png'),
+                                            const BuildCircleAvatar(imgPath: 'assets/images/avatar 1.png'),
                                             Transform.translate(
-                                              offset: Offset(-10, 0),
-                                              child: circleAvatar(
-                                                  imgPath:
-                                                      'assets/images/avatar 2.png'),
+                                              offset: const Offset(-10, 0),
+                                              child: const BuildCircleAvatar(imgPath: 'assets/images/avatar 2.png'),
                                             ),
                                             Transform.translate(
-                                              offset: Offset(-20, 0),
-                                              child: circleAvatar(
-                                                  imgPath:
-                                                      'assets/images/avatar 3.png'),
+                                              offset: const Offset(-20, 0),
+                                              child: const BuildCircleAvatar(imgPath: 'assets/images/avatar 3.png'),
                                             ),
                                           ],
                                         ),
                                         Transform.translate(
-                                          offset: Offset(-15, 0),
+                                          offset: const Offset(-15, 0),
                                           child: Row(
                                             children: [
                                               const SizedBox(
@@ -310,13 +298,10 @@ class _AddtocartPageState extends State<AddtocartPage> {
                                               Text(
                                                 '$avgRates',
                                                 style: TextStyle(
-                                                    color:
-                                                        const Color(0xFF232A30)
-                                                            .withOpacity(0.7),
+                                                    color: const Color(0xFF232A30).withOpacity(0.7),
                                                     fontSize: 14,
                                                     fontFamily: 'Roboto',
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                                    fontWeight: FontWeight.w600),
                                               ),
                                               const SizedBox(
                                                 width: 5,
@@ -332,13 +317,10 @@ class _AddtocartPageState extends State<AddtocartPage> {
                                               Text(
                                                 '(+${nbRates.toString()})',
                                                 style: TextStyle(
-                                                    color:
-                                                        const Color(0xFF232A30)
-                                                            .withOpacity(0.7),
+                                                    color: const Color(0xFF232A30).withOpacity(0.7),
                                                     fontSize: 14,
                                                     fontFamily: 'Roboto',
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                                    fontWeight: FontWeight.w600),
                                               ),
                                             ],
                                           ),
@@ -368,7 +350,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
                               ),
                               Text(
                                 price.toStringAsFixed(2).toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Color(0xFF232A30),
                                   fontSize: 25,
                                   fontWeight: FontWeight.bold,
@@ -388,9 +370,9 @@ class _AddtocartPageState extends State<AddtocartPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        metaInfo(icon: '⭐', qte: '4.4'),
-                        metaInfo(icon: '🔥', qte: '304 Kcal'),
-                        metaInfo(icon: '⏰', qte: '5-10 min'),
+                        MetaInfo(icon: '⭐', qte: '4.4'),
+                        MetaInfo(icon: '🔥', qte: '304 Kcal'),
+                        MetaInfo(icon: '⏰', qte: '5-10 min'),
                       ],
                     ),
                     const SizedBox(
@@ -407,10 +389,7 @@ class _AddtocartPageState extends State<AddtocartPage> {
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            color: Color(0xFF232A30),
-                            fontSize: 16,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w500),
+                            color: Color(0xFF232A30), fontSize: 16, fontFamily: 'Roboto', fontWeight: FontWeight.w500),
                       ),
                     ),
                   ],
@@ -424,12 +403,11 @@ class _AddtocartPageState extends State<AddtocartPage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color(0xFFF54749),
+                  color: const Color(0xFFF54749),
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: const Center(
@@ -452,8 +430,8 @@ class _AddtocartPageState extends State<AddtocartPage> {
   }
 }
 
-class circleAvatar extends StatelessWidget {
-  const circleAvatar({required this.imgPath});
+class BuildCircleAvatar extends StatelessWidget {
+  const BuildCircleAvatar({Key? key, required this.imgPath}) : super(key: key);
 
   final String imgPath;
 
@@ -473,8 +451,8 @@ class circleAvatar extends StatelessWidget {
   }
 }
 
-class metaInfo extends StatelessWidget {
-  const metaInfo({required this.icon, required this.qte});
+class MetaInfo extends StatelessWidget {
+  const MetaInfo({Key? key, required this.icon, required this.qte}) : super(key: key);
 
   final String icon;
   final String qte;
@@ -488,10 +466,7 @@ class metaInfo extends StatelessWidget {
           Text(
             icon,
             style: const TextStyle(
-                color: Color(0xFF232A30),
-                fontSize: 18,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w600),
+                color: Color(0xFF232A30), fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.w600),
           ),
           const SizedBox(
             width: 10,
@@ -499,10 +474,7 @@ class metaInfo extends StatelessWidget {
           Text(
             qte,
             style: const TextStyle(
-                color: Color(0xFF232A30),
-                fontSize: 17,
-                fontFamily: 'Roboto',
-                fontWeight: FontWeight.w600),
+                color: Color(0xFF232A30), fontSize: 17, fontFamily: 'Roboto', fontWeight: FontWeight.w600),
           ),
         ],
       ),

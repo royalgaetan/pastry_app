@@ -5,22 +5,22 @@ import 'package:pastry_app/pages/checkout.dart';
 import 'package:pastry_app/pages/home.dart';
 
 class Screen0 extends StatefulWidget {
-  Screen0({Key? key}) : super(key: key);
+  const Screen0({Key? key}) : super(key: key);
 
   @override
   State<Screen0> createState() => _Screen0State();
 }
 
 class _Screen0State extends State<Screen0> {
-  int _SelectedIndex = 0;
+  int selectedIndex = 0;
 
   void _navigateBottomNavigationBar(int index) {
     setState(() {
-      _SelectedIndex = index;
+      selectedIndex = index;
     });
   }
 
-  final List<Widget> _Pages = [HomePage(), ActivityPage(), CheckoutPage()];
+  final List<Widget> pages = [const HomePage(), const ActivityPage(), const CheckoutPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -28,34 +28,32 @@ class _Screen0State extends State<Screen0> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading:
-            const AppBarIconContainer(icon: Icons.dashboard_customize_rounded),
+        leading: const AppBarIconContainer(icon: Icons.dashboard_customize_rounded),
         centerTitle: true,
-        title: TitleRow(),
+        title: titleRow(),
         actions: const [
           AppBarImgContainer(
             imgPath: 'assets/images/emoji_happy.png',
           ),
         ],
       ),
-      body: _Pages[_SelectedIndex],
+      body: pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _SelectedIndex,
+          currentIndex: selectedIndex,
           onTap: _navigateBottomNavigationBar,
-          fixedColor: Color(0xFFF54749),
+          fixedColor: const Color(0xFFF54749),
           type: BottomNavigationBarType.fixed,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(icon: Icon(IconlyBold.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(IconlyBold.heart), label: 'Favorites'),
+            BottomNavigationBarItem(icon: Icon(IconlyBold.heart), label: 'Favorites'),
             BottomNavigationBarItem(icon: Icon(IconlyBold.bag), label: 'Cart'),
           ]),
     );
   }
 
-  Row TitleRow() {
+  Row titleRow() {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
       Icon(
         IconlyBold.location,
@@ -67,11 +65,7 @@ class _Screen0State extends State<Screen0> {
       ),
       Text(
         'Brazza, Congo',
-        style: TextStyle(
-            color: Color(0xFF232A30),
-            fontSize: 18,
-            fontFamily: 'Roboto',
-            fontWeight: FontWeight.w600),
+        style: TextStyle(color: Color(0xFF232A30), fontSize: 18, fontFamily: 'Roboto', fontWeight: FontWeight.w600),
       ),
       SizedBox(
         width: 5,
@@ -86,7 +80,7 @@ class _Screen0State extends State<Screen0> {
 }
 
 class AppBarIconContainer extends StatelessWidget {
-  const AppBarIconContainer({required this.icon});
+  const AppBarIconContainer({Key? key, required this.icon}) : super(key: key);
 
   final IconData icon;
 
@@ -103,7 +97,7 @@ class AppBarIconContainer extends StatelessWidget {
           onPressed: () {},
           icon: Icon(
             icon,
-            color: Color(0xFF232A30).withOpacity(0.8),
+            color: const Color(0xFF232A30).withOpacity(0.8),
           ),
         ),
       ),
@@ -112,7 +106,7 @@ class AppBarIconContainer extends StatelessWidget {
 }
 
 class AppBarImgContainer extends StatelessWidget {
-  const AppBarImgContainer({required this.imgPath});
+  const AppBarImgContainer({Key? key, required this.imgPath}) : super(key: key);
 
   final String imgPath;
 

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-class categorieItemContainer extends StatelessWidget {
-  const categorieItemContainer({
+class CategorieItemContainer extends StatelessWidget {
+  const CategorieItemContainer({
+    Key? key,
     required this.index,
     required this.imgPath,
     required this.label,
     required this.isActive,
     required this.onTap,
-  });
+  }) : super(key: key);
 
   final int index;
   final String imgPath;
@@ -25,7 +26,7 @@ class categorieItemContainer extends StatelessWidget {
         width: 140,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
-          color: isActive ? Color(0xFFF54749) : Color(0xFFF5F5F5),
+          color: isActive ? const Color(0xFFF54749) : const Color(0xFFF5F5F5),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -33,18 +34,17 @@ class categorieItemContainer extends StatelessWidget {
             Container(
               height: 30,
               width: 30,
-              padding: EdgeInsets.all(4),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(50)),
+              padding: const EdgeInsets.all(4),
+              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(50)),
               child: Image.asset(imgPath),
             ),
-            SizedBox(
+            const SizedBox(
               width: 15,
             ),
             Text(
               label,
               style: TextStyle(
-                  color: isActive ? Colors.white : Color(0xFF232A30),
+                  color: isActive ? Colors.white : const Color(0xFF232A30),
                   fontSize: 16,
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w600),

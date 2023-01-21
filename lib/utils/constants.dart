@@ -1,7 +1,7 @@
 import 'package:pastry_app/utils/categorie_item_model.dart';
 import 'package:pastry_app/utils/item_model.dart';
 
-List<CategorieItem> CategorieItemList = [
+List<CategorieItem> categorieItemList = [
   CategorieItem(
     index: 0,
     imgPath: 'assets/images/emoji_hamburger.png',
@@ -34,7 +34,7 @@ List<CategorieItem> CategorieItemList = [
   ),
 ];
 
-List<Item> HamburgerList = [
+List<Item> hamburgerList = [
   Item(
     index: 0,
     type: 'hamburger',
@@ -64,7 +64,7 @@ List<Item> HamburgerList = [
   ),
 ];
 
-List<Item> PizzaList = [
+List<Item> pizzaList = [
   Item(
     index: 0,
     type: 'pizza',
@@ -94,7 +94,7 @@ List<Item> PizzaList = [
   ),
 ];
 
-List<Item> CakeList = [
+List<Item> cakeList = [
   Item(
     index: 0,
     type: 'cake',
@@ -124,7 +124,7 @@ List<Item> CakeList = [
   ),
 ];
 
-List<Item> JuiceList = [
+List<Item> juiceList = [
   Item(
     index: 0,
     type: 'juice',
@@ -154,7 +154,7 @@ List<Item> JuiceList = [
   ),
 ];
 
-List<Item> IceCreamList = [
+List<Item> iceCreamList = [
   Item(
     index: 0,
     type: 'icecream',

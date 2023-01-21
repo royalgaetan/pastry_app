@@ -4,6 +4,7 @@ import 'package:pastry_app/pages/addtocart.dart';
 
 class ItemCard extends StatelessWidget {
   const ItemCard({
+    Key? key,
     required this.index,
     required this.type,
     required this.imgPath,
@@ -11,7 +12,7 @@ class ItemCard extends StatelessWidget {
     required this.price,
     required this.avgRates,
     required this.nbRates,
-  });
+  }) : super(key: key);
 
   final int index;
   final String type;
@@ -35,7 +36,7 @@ class ItemCard extends StatelessWidget {
       child: Hero(
         tag: '$type-$index',
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
           height: 220,
           width: 180,
           decoration: BoxDecoration(
@@ -51,7 +52,7 @@ class ItemCard extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                     color: Colors.pink.shade100.withOpacity(0.2),
-                    offset: Offset(0, 16),
+                    offset: const Offset(0, 16),
                     blurRadius: 9.0,
                     spreadRadius: 6.0,
                     blurStyle: BlurStyle.normal),
@@ -78,8 +79,7 @@ class ItemCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(35),
                           color: Colors.grey.withOpacity(0.6),
@@ -89,10 +89,7 @@ class ItemCard extends StatelessWidget {
                             Text(
                               '$avgRates',
                               style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11,
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.w600),
+                                  color: Colors.white, fontSize: 11, fontFamily: 'Roboto', fontWeight: FontWeight.w600),
                             ),
                             const SizedBox(
                               width: 5,
@@ -108,10 +105,7 @@ class ItemCard extends StatelessWidget {
                             Text(
                               '(+${nbRates.toString()})',
                               style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11,
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.w600),
+                                  color: Colors.white, fontSize: 11, fontFamily: 'Roboto', fontWeight: FontWeight.w600),
                             ),
                           ],
                         ),
@@ -119,14 +113,14 @@ class ItemCard extends StatelessWidget {
                       Container(
                         height: 35,
                         width: 35,
-                        padding: EdgeInsets.all(0),
+                        padding: const EdgeInsets.all(0),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: IconButton(
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             IconlyBold.heart,
                             size: 20,
                             color: Color(0xFFF54749),
@@ -191,7 +185,7 @@ class ItemCard extends StatelessWidget {
                       // ),
 
                       //  Item Info
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -202,7 +196,7 @@ class ItemCard extends StatelessWidget {
                             fontFamily: 'Roboto',
                             fontWeight: FontWeight.w600),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Row(
@@ -222,7 +216,7 @@ class ItemCard extends StatelessWidget {
                           Text(
                             price.toStringAsFixed(2).toString(),
                             style: TextStyle(
-                              color: Color(0xFFF54749).withOpacity(0.8),
+                              color: const Color(0xFFF54749).withOpacity(0.8),
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Roboto',

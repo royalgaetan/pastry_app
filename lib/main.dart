@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pastry_app/pages/getstarted.dart';
 
 void main() {
-  runApp(PastryApp());
+  runApp(const PastryApp());
 }
 
 class PastryApp extends StatefulWidget {
-  PastryApp({Key? key}) : super(key: key);
+  const PastryApp({Key? key}) : super(key: key);
 
   @override
   State<PastryApp> createState() => _PastryAppState();
@@ -15,7 +15,7 @@ class PastryApp extends StatefulWidget {
 class _PastryAppState extends State<PastryApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Pastry App",
       home: GetStartedPage(),
