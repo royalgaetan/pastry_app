@@ -1,16 +1,28 @@
-# pastry_app
 
-A new Flutter project.
+# Pastry (Template*)
 
-## Getting Started
+🍔🛴 L'application de livraison de repas à domicile.
+## Fonctionnalités
+ 
+- Descriptions détaillées des plats 📝
+- Panier 🛒
+- Récapitulatif de la commande 📌
+- Options de paiement faciles 💳
+- Avis et notes ⭐
+- Planification et ramassage des commandes 🍽
+- Filtres de recherche 🔎
+- Historique des commandes ⏲
+- Ajouter aux Favoris ❤
+## Captures d'écran
 
-This project is a starting point for a Flutter application.
+![App Screenshot](https://us-ms.gr-cdn.com/getresponse-CwX7D/photos/e7e457f9-7489-49be-bc41-3d1d82ed67dc.png)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Auteurs
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [@royalgaetan](https://twitter.com/RoyalGaetan)
+
+
+## Licence
+
+[MIT](https://choosealicense.com/licenses/mit/)
