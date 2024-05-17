@@ -2,6 +2,8 @@
 # Pastry (Template*)
 
 🍔🛴 L'application de livraison de repas à domicile.
+<br/>
+
 ## Fonctionnalités
  
 - Descriptions détaillées des plats 📝
@@ -13,9 +15,10 @@
 - Filtres de recherche 🔎
 - Historique des commandes ⏲
 - Ajouter aux Favoris ❤
+
 ## Captures d'écran
 
-![App Screenshot](https://us-ms.gr-cdn.com/getresponse-CwX7D/photos/e7e457f9-7489-49be-bc41-3d1d82ed67dc.png)
+<img src="http://bigagencytravel.com/wp-content/uploads/2024/05/Mockup-Multi-Screen-Pastry.png" height="500" />
 
 
 ## Auteurs
